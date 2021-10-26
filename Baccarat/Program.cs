@@ -29,12 +29,12 @@ namespace Baccarat
                 if (banker > player)
                 {
                     win = true;
-                    Console.WriteLine("Banker wins Natural");
+                    Console.WriteLine("Banker wins Natural " + banker + " over " + player);
                     
                 }
                 else if (banker < player)
                 {
-                    Console.WriteLine("Player wins Natural");
+                    Console.WriteLine("Player wins Natural " + player + " over " + banker);
                 }
                 else
                 {
@@ -46,11 +46,11 @@ namespace Baccarat
                 if (banker > player)
                 {
                     win = true;
-                    Console.WriteLine("Banker wins Natural");
+                    Console.WriteLine("Banker wins Natural " + banker + " over " + player);
                 }
                 else if (banker < player)
                 {
-                    Console.WriteLine("Player wins Natural");
+                    Console.WriteLine("Player wins Natural " + player + " over " + banker);
                 }
                 else
                 {
@@ -63,16 +63,14 @@ namespace Baccarat
             return win;
         }
 
-        static Boolean BankerDrawsZeroTwo(int banker, int player)
+        static Boolean BankerDrawsZeroTwo(int banker, int player, int playerthird)
         {
             Random random = new Random();
             int bankerthird = random.Next(0, 9);
-            int playerthird = random.Next(0, 9);
             bool win = true;
 
             if (banker >= 0 && banker <= 2)
             {
-                Console.WriteLine("Banker has " + banker);
                 Console.WriteLine("One card for banker");
                 banker += bankerthird;
                 if (banker >= 10)
@@ -83,12 +81,12 @@ namespace Baccarat
                 if (banker > player)
                 {
                     win = true;
-                    Console.WriteLine("Banker wins: " + banker);
+                    Console.WriteLine("Banker wins " + banker + " over " + player);
                 }
                 else if (banker < player)
                 {
                     win = false;
-                    Console.WriteLine("Player wins: " + player);
+                    Console.WriteLine("Player wins " + player + " over " + banker);
                 }
                 else if (banker == player)
                 {
@@ -98,11 +96,10 @@ namespace Baccarat
             return win;
         }
 
-        static Boolean BankerHasThree(int banker, int player)
+        static Boolean BankerHasThree(int banker, int player, int playerthird)
         {
             Random random = new Random();
             int bankerthird = random.Next(0, 9);
-            int playerthird = random.Next(0, 9);
             bool win = true;
             if (banker == 3 && playerthird != 8)
             {
@@ -117,12 +114,12 @@ namespace Baccarat
                 if (banker > player)
                 {
                     win = true;
-                    Console.WriteLine("Banker wins");
+                    Console.WriteLine("Banker wins " + banker + " over " + player);
                 }
                 else if (banker < player)
                 {
                     win = false;
-                    Console.WriteLine("Player wins");
+                    Console.WriteLine("Player wins " + player + " over " + banker);
                 }
                 else if (banker == player)
                 {
@@ -134,12 +131,12 @@ namespace Baccarat
                 if (banker > player)
                 {
                     win = true;
-                    Console.WriteLine("Banker wins");
+                    Console.WriteLine("Banker wins " + banker + " over " + player);
                 }
                 else if (banker < player)
                 {
                     win = false;
-                    Console.WriteLine("Player wins");
+                    Console.WriteLine("Player wins " + player + " over " + banker);
                 }
                 else if (banker == player)
                 {
@@ -150,13 +147,12 @@ namespace Baccarat
         }
 
 
-        static Boolean BankerHasFour(int banker, int player)
+        static Boolean BankerHasFour(int banker, int player, int playerthird)
         {
             Random random = new Random();
             int bankerthird = random.Next(0, 9);
-            int playerthird = random.Next(0, 9);
             bool win = true;
-            if (banker == 4 && playerthird >= 2 && playerthird <= 7)
+            if (banker == 4 && (playerthird >= 2 && playerthird <= 7))
             {
                 Console.WriteLine("2-7 Draw! One card for banker");
                 banker += bankerthird;
@@ -168,29 +164,29 @@ namespace Baccarat
                 if (banker > player)
                 {
                     win = true;
-                    Console.WriteLine("Banker wins");
+                    Console.WriteLine("Banker wins " + banker + " over " + player);
                 }
                 else if (banker < player)
                 {
                     win = false;
-                    Console.WriteLine("Player wins");
+                    Console.WriteLine("Player wins " + player + " over " + banker);
                 }
                 else
                 {
                     Console.WriteLine("Tie hand");
                 }
             }
-            else if(banker == 4 && playerthird <=2 && playerthird >=7)
+            else if(banker == 4 && (playerthird < 2 || playerthird > 7))
             {
                 if (banker > player)
                 {
                     win = true;
-                    Console.WriteLine("Banker wins");
+                    Console.WriteLine("Banker wins " + banker + " over " + player);
                 }
                 else if (banker < player)
                 {
                     win = false;
-                    Console.WriteLine("Player wins");
+                    Console.WriteLine("Player wins " + player + " over " + banker);
                 }
                 else if (banker == player)
                 {
@@ -200,15 +196,13 @@ namespace Baccarat
             return win;
         }
 
-        static Boolean BankerHasFive(int banker, int player)
+        static Boolean BankerHasFive(int banker, int player, int playerthird)
         {
             Random random = new Random();
             int bankerthird = random.Next(0, 9);
-            int playerthird = random.Next(0, 9);
             bool win = true;
-            if (banker == 5 && playerthird >= 4 && playerthird <= 7)
+            if (banker == 5 && (playerthird >= 4 && playerthird <= 7))
             {
-
                 Console.WriteLine("4-7 Draw! One card for banker");
                 banker += bankerthird;
                 if (banker >= 10)
@@ -219,29 +213,29 @@ namespace Baccarat
                 if (banker > player)
                 {
                     win = true;
-                    Console.WriteLine("Banker wins");
+                    Console.WriteLine("Banker wins " + banker + " over " + player);
                 }
                 else if (banker < player)
                 {
                     win = false;
-                    Console.WriteLine("Player wins");
+                    Console.WriteLine("Player wins " + player + " over " + banker);
                 }
                 else
                 {
                     Console.WriteLine("Tie hand");
                 }
             }
-            else if (banker == 5 && playerthird <= 4 && playerthird >= 7)
+            else if (banker == 5 && (playerthird < 4 || playerthird > 7))
             {
                 if (banker > player)
                 {
                     win = true;
-                    Console.WriteLine("Banker wins");
+                    Console.WriteLine("Banker wins " + banker + " over " + player);
                 }
                 else if (banker < player)
                 {
                     win = false;
-                    Console.WriteLine("Player wins");
+                    Console.WriteLine("Player wins " + player + " over " + banker);
                 }
                 else if (banker == player)
                 {
@@ -250,14 +244,13 @@ namespace Baccarat
             }
             return win;
         }
-        static Boolean BankerHasSix(int banker, int player)
+        static Boolean BankerHasSix(int banker, int player, int playerthird)
         {
             Random random = new Random();
             int bankerthird = random.Next(0, 9);
-            int playerthird = random.Next(0, 9);
             bool win = true;
 
-            if (banker == 6 && playerthird >= 6 && playerthird <= 7)
+            if (banker == 6 && (playerthird >= 6 && playerthird <= 7))
             {
                 Console.WriteLine("6-7 Draw! One card for banker");
                 banker += bankerthird;
@@ -271,39 +264,39 @@ namespace Baccarat
                     win = true;
                     if (banker == 6)
                     {
-                        Console.WriteLine("Banker wins Tiger on 6");
+                        Console.WriteLine("Banker wins Tiger on " + banker + " over " + player);
                     }
                     else if (banker == 7)
                     {
-                        Console.WriteLine("Banker wins");
+                        Console.WriteLine("Banker wins " + banker + " over " + player);
                     }
                 }
                 else if (banker > player)
                 {
                     win = true;
-                    Console.WriteLine("Banker wins");
+                    Console.WriteLine("Banker wins " + banker + " over " + player);
                 }
                 else if (banker < player)
                 {
                     win = false;
-                    Console.WriteLine("Player wins");
+                    Console.WriteLine("Player wins " + player + " over " + banker);
                 }
                 else if (banker == player)
                 {
                     Console.WriteLine("Tie hand");
                 }
             }
-            else if (banker == 6 && playerthird <= 6 && playerthird >= 7)
+            else if (banker == 6 && (playerthird < 6 || playerthird > 7))
             {
                 if (banker > player)
                 {
                     win = true;
-                    Console.WriteLine("Banker wins");
+                    Console.WriteLine("Banker wins Tiger on " + banker + " over " + player);
                 }
                 else if (banker < player)
                 {
                     win = false;
-                    Console.WriteLine("Player wins");
+                    Console.WriteLine("Player wins " + player + " over " + banker);
                 }
                 else if (banker == player)
                 {
@@ -312,7 +305,7 @@ namespace Baccarat
             }
             return win;
         }
-        static Boolean BankerHasSeven(int banker, int player)
+        static Boolean BankerHasSeven(int banker, int player, int playerthird)
         {
             bool win = true;
             if (banker == 7)
@@ -320,12 +313,12 @@ namespace Baccarat
                 if (banker > player)
                 {
                     win = true;
-                    Console.WriteLine("Banker Wins");
+                    Console.WriteLine("Banker Wins " + banker + " over " + player);
                 }
                 else if (banker < player)
                 {
                     win = false;
-                    Console.WriteLine("Player wins");
+                    Console.WriteLine("Player wins " + player + " over " + banker);
                 }
                 else if (banker == player)
                 {
@@ -339,7 +332,6 @@ namespace Baccarat
             bool stand = true;
             Random random = new Random();
             int bankerthird = random.Next(0, 9);
-            int playerthird = random.Next(0, 9);
             if (player >= 6 && player <= 7)
             {
                 if (banker >= 0 && banker <= 5)
@@ -354,11 +346,11 @@ namespace Baccarat
 
                     if (banker > player)
                     {
-                        Console.WriteLine("Banker wins");
+                        Console.WriteLine("Banker wins " + banker + " over " + player);
                     }
                     else if (banker < player)
                     {
-                        Console.WriteLine("Player wins");
+                        Console.WriteLine("Player wins " + player + " over " + banker);
                     }
                     else if (banker == player)
                     {
@@ -369,11 +361,11 @@ namespace Baccarat
                 {
                     if (banker > player)
                     {
-                        Console.WriteLine("Banker wins");
+                        Console.WriteLine("Banker wins " + banker + " over " + player);
                     }
                     else if (banker < player)
                     {
-                        Console.WriteLine("Player wins");
+                        Console.WriteLine("Player wins " + player + " over " + banker);
                     }
                     else if (banker == player)
                     {
@@ -388,9 +380,7 @@ namespace Baccarat
             if (player >= 0 && player <= 5) 
             {
                 Random random = new Random();
-                int bankerthird = random.Next(0, 9);
                 int playerthird = random.Next(0, 9);
-                Console.WriteLine("Player has " + player);
                 Console.WriteLine("One card for player");
                 player += playerthird;
                 if (player >= 10)
@@ -398,12 +388,12 @@ namespace Baccarat
                     player -= 10;
                 }
                 Console.WriteLine("Player now has " + player);
-                BankerDrawsZeroTwo(banker, player);
-                BankerHasThree(banker, player);
-                BankerHasFour(banker, player);
-                BankerHasFive(banker, player);
-                BankerHasSix(banker, player);
-                BankerHasSeven(banker, player);
+                BankerDrawsZeroTwo(banker, player, playerthird);
+                BankerHasThree(banker, player, playerthird);
+                BankerHasFour(banker, player, playerthird);
+                BankerHasFive(banker, player, playerthird);
+                BankerHasSix(banker, player, playerthird);
+                BankerHasSeven(banker, player, playerthird);
             }
         }
         static void Baccarat(int banker, int player)
